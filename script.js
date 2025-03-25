@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const trackIndex = availableTracks.indexOf(trackId);
         if (trackIndex === -1) return;
 
+        // LOADDDD TRACCKKKKKKSSSSSS
         currentTrackIndex = trackIndex;
-        audioSource.src = `/static/audio/tracks/track${trackId}.mp3`;
+        audioSource.src = `/preview/${trackId}.wav`;
         audioPlayer.load();
 
         // Update UI
