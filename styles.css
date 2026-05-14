@@ -172,11 +172,8 @@ header p{
 
 .audio-player{
   position:sticky;
-
   top:20px;
-
-  z-index:50;
-
+  z-index:1000;
   background:
     linear-gradient(
       to bottom,
@@ -184,20 +181,16 @@ header p{
       rgba(255,255,255,0.04)
     );
 
+  backdrop-filter: blur(8px);                /* Desenfoque glass */
+  -webkit-backdrop-filter: blur(8px);        /* Soporte para Safari */
+
   border-radius:30px;
 
   padding:28px;
 
   border:
     1px solid rgba(255,255,255,0.16);
-
-  backdrop-filter:
-    blur(40px)
-    saturate(180%);
-
-  -webkit-backdrop-filter:
-    blur(40px)
-    saturate(180%);
+}
 
   margin-bottom:25px;
 
