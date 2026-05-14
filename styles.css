@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-/*DANIEL CAMPOS 2026*/
 
 *{
   margin:0;
@@ -173,8 +172,11 @@ header p{
 
 .audio-player{
   position:sticky;
+
   top:20px;
-  z-index:1000;
+
+  z-index:50;
+
   background:
     linear-gradient(
       to bottom,
@@ -182,16 +184,20 @@ header p{
       rgba(255,255,255,0.04)
     );
 
-  backdrop-filter: blur(8px);                /* Desenfoque glass */
-  -webkit-backdrop-filter: blur(8px);        /* Soporte para Safari */
-
   border-radius:30px;
 
   padding:28px;
 
   border:
     1px solid rgba(255,255,255,0.16);
-}
+
+  backdrop-filter:
+    blur(40px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(40px)
+    saturate(180%);
 
   margin-bottom:25px;
 
