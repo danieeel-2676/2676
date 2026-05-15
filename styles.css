@@ -10,7 +10,6 @@
 
 body{
   min-height:100vh;
-
   font-family:'Inter',sans-serif;
   color:white;
 
@@ -23,7 +22,6 @@ body{
   overflow-x:hidden;
 
   background:#080808;
-
   position:relative;
 }
 
@@ -31,10 +29,8 @@ body{
 
 body::before{
   content:'';
-
   position:fixed;
   inset:0;
-
   z-index:-2;
 
   background:
@@ -44,20 +40,14 @@ body::before{
     #09090b;
 }
 
-/* ATMOSPHERIC DEPTH */
-
 body::after{
   content:'';
-
   position:fixed;
   inset:0;
-
   z-index:-1;
-
   pointer-events:none;
 
-  background:
-    rgba(0,0,0,0.10);
+  background:rgba(0,0,0,0.10);
 
   backdrop-filter:
     blur(45px)
@@ -79,48 +69,39 @@ body::after{
 
 header{
   text-align:center;
-
   margin-bottom:36px;
 }
 
 header h1{
   font-size:4.6rem;
   font-weight:800;
-
   letter-spacing:12px;
 
   margin-bottom:12px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #ffffff,
-      rgba(255,255,255,0.65)
-    );
-
+  background:linear-gradient(90deg,#ffffff,rgba(255,255,255,0.65));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 header p{
   opacity:.72;
-
   letter-spacing:1px;
 }
 
-/* PLAYER */
+/* =========================
+   PLAYER (FIXED SPACING)
+========================= */
 
 .audio-player{
   position:sticky;
   top:20px;
-
   z-index:1000;
 
   overflow:hidden;
 
   padding:30px;
-
-  margin-bottom:20px;
+  margin-bottom:26px;
 
   border-radius:34px;
 
@@ -131,196 +112,146 @@ header p{
       rgba(255,255,255,0.05)
     );
 
-  border:
-    1px solid rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.16);
 
-  backdrop-filter:
-    blur(22px)
-    saturate(180%);
-
-  -webkit-backdrop-filter:
-    blur(22px)
-    saturate(180%);
+  backdrop-filter:blur(22px) saturate(180%);
+  -webkit-backdrop-filter:blur(22px) saturate(180%);
 
   box-shadow:
     inset 0 1px 1px rgba(255,255,255,0.12),
     0 12px 40px rgba(0,0,0,0.24);
 }
 
-/* LIGHT */
-
+/* overlay light */
 .audio-player::before{
   content:'';
-
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.12),
-      rgba(255,255,255,0.02)
-    );
-}
-
-/* BLUR DIVIDER */
-
-.sticky-blur-divider{
-  position:sticky;
-  top:118px;
-
-  z-index:900;
-
-  height:140px;
-
-  margin-top:-30px;
-  margin-bottom:-60px;
-
   pointer-events:none;
 
-  opacity:0;
-
-  transform:
-    translateY(-10px);
-
-  transition:
-    opacity .4s ease,
-    transform .4s ease;
-
-  backdrop-filter:
-    blur(45px)
-    saturate(180%);
-
-  -webkit-backdrop-filter:
-    blur(45px)
-    saturate(180%);
-
   background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.10),
-      rgba(255,255,255,0)
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,1),
-      transparent
-    );
+    linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.02));
 }
 
-body.scrolled .sticky-blur-divider{
-  opacity:1;
-
-  transform:
-    translateY(0);
-}
-
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
 
 #trackTitle{
   text-align:center;
-
-  margin-bottom:25px;
-
+  margin-bottom:22px;
   font-size:1.25rem;
   font-weight:700;
 }
 
-/* PROGRESS */
+/* =========================
+   PROGRESS + VOLUME FIX
+========================= */
 
 .progress-volume-container{
   display:flex;
   align-items:center;
+  gap:16px;
 
-  gap:18px;
+  width:100%;
 }
 
+/* PROGRESS */
 .progress-container{
   flex:1;
-
   display:flex;
   align-items:center;
+  gap:12px;
 
-  gap:14px;
+  min-width:0;
 }
 
 .progress-container span{
   min-width:45px;
-
   text-align:center;
-
   opacity:.7;
-
   font-size:.82rem;
 }
 
-/* RANGE */
+/* VOLUME FIX (NO OVERLAP) */
+.volume-container{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  width:160px;
+  flex-shrink:0;
+}
+
+/* =========================
+   SLIDERS (CLEAN + MODERN)
+========================= */
 
 input[type="range"]{
   appearance:none;
   -webkit-appearance:none;
 
-  flex:1;
-
-  height:6px;
+  width:100%;
+  height:5px;
 
   border-radius:999px;
 
-  background:
-    rgba(255,255,255,0.14);
+  background:rgba(255,255,255,0.12);
+
+  outline:none;
 }
 
+/* track line */
+input[type="range"]::-webkit-slider-runnable-track{
+  height:5px;
+  background:rgba(255,255,255,0.12);
+  border-radius:999px;
+}
+
+/* thumb minimal */
 input[type="range"]::-webkit-slider-thumb{
-  appearance:none;
   -webkit-appearance:none;
+  appearance:none;
 
-  width:16px;
-  height:16px;
-
-  margin-top:-5px;
+  width:12px;
+  height:12px;
 
   border-radius:50%;
 
   background:white;
 
   cursor:pointer;
+
+  box-shadow:0 0 10px rgba(255,255,255,0.35);
 }
 
-input[type="range"]::-webkit-slider-runnable-track{
-  height:6px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,0.14);
-}
-
-/* CONTROLS */
+/* =========================
+   CONTROLS (FIX ALIGNMENT)
+========================= */
 
 .controls{
   display:flex;
-
   justify-content:center;
   align-items:center;
 
-  flex-wrap:wrap;
+  gap:14px;
 
-  gap:18px;
+  margin-top:26px;
 
-  margin-top:30px;
+  width:100%;
 }
 
-/* BUTTONS */
-
+/* buttons */
 .controls button,
 #volumeIcon{
-  width:58px;
-  height:58px;
+  flex:0 0 auto;
+
+  width:56px;
+  height:56px;
+  min-width:56px;
+  min-height:56px;
 
   border:none;
-
   border-radius:50%;
 
   display:flex;
@@ -330,10 +261,6 @@ input[type="range"]::-webkit-slider-runnable-track{
   cursor:pointer;
 
   color:white;
-
-  font-family:'Material Icons';
-
-  font-size:30px;
 
   background:
     linear-gradient(
@@ -342,73 +269,56 @@ input[type="range"]::-webkit-slider-runnable-track{
       rgba(255,255,255,0.05)
     );
 
-  border:
-    1px solid rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.14);
 
-  backdrop-filter:
-    blur(20px)
-    saturate(180%);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.12);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,0.12);
 
-  transition:
-    transform .25s ease,
-    background .25s ease;
+  transition:transform .2s ease, background .2s ease;
 }
 
 .controls button:hover,
 #volumeIcon:hover{
   transform:scale(1.08);
-
-  background:
-    rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.22);
 }
 
-/* PLAY BUTTON */
-
+/* play button */
 #playPauseBtn{
-  width:78px;
-  height:78px;
+  width:76px;
+  height:76px;
 
+  min-width:76px;
+  min-height:76px;
+
+  background:white;
   color:black;
 
-  font-size:42px;
+  font-size:34px;
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.96),
-      rgba(255,255,255,0.76)
-    );
-
-  box-shadow:
-    0 0 45px rgba(255,255,255,0.22);
+  box-shadow:0 0 35px rgba(255,255,255,0.25);
 }
 
-/* TRACK LIST */
-
-.track-list{
-  padding-top:10px;
-}
+/* =========================
+   TRACKLIST (SPOTIFY STYLE SPACING FIX)
+========================= */
 
 .track-list ul{
   list-style:none;
 }
 
+/* CARD */
 .track{
   display:flex;
-
   align-items:center;
-  justify-content:space-between;
-
-  gap:15px;
+  gap:14px;
 
   padding:18px 20px;
+  margin-bottom:12px; /* 🔥 FIX REAL SPACING */
 
-  margin-bottom:14px;
-
-  border-radius:24px;
+  border-radius:22px;
 
   background:
     linear-gradient(
@@ -417,65 +327,65 @@ input[type="range"]::-webkit-slider-runnable-track{
       rgba(255,255,255,0.04)
     );
 
-  border:
-    1px solid rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.12);
 
-  backdrop-filter:
-    blur(30px)
-    saturate(180%);
+  backdrop-filter:blur(30px) saturate(180%);
+
+  transition:transform .2s ease, border .2s ease;
 }
 
 .track:hover{
   transform:scale(1.01);
+  border-color:rgba(255,255,255,0.22);
 }
 
+/* TITLE */
 .track-title{
   font-weight:600;
 }
 
+/* DURATION (RIGHT FIX) */
 .track-duration{
   margin-left:auto;
+  min-width:60px;
 
-  opacity:.62;
+  text-align:right;
+  opacity:.65;
 }
 
-/* PLAY BTN */
-
+/* PLAY BUTTON (MORE READABLE) */
 .play-btn{
   border:none;
-
-  padding:10px 18px;
+  padding:10px 16px;
 
   border-radius:999px;
-
-  color:white;
 
   font-weight:700;
 
   cursor:pointer;
 
-  background:
-    rgba(255,255,255,0.14);
+  color:white;
 
-  backdrop-filter:
-    blur(20px);
+  background:rgba(255,255,255,0.18);
+
+  border:1px solid rgba(255,255,255,0.14);
+
+  transition:transform .2s ease, background .2s ease;
 }
 
-/* DISABLED */
-
-.track.disabled{
-  opacity:.34;
-
-  filter:grayscale(.4);
+.play-btn:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.28);
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE FIXES
+========================= */
 
 @media (max-width:720px){
 
   header h1{
     font-size:3rem;
-
     letter-spacing:6px;
   }
 
@@ -485,22 +395,12 @@ input[type="range"]::-webkit-slider-runnable-track{
 
   .track-duration{
     width:100%;
-
+    text-align:right;
     margin-left:0;
-  }
-
-  .play-btn{
-    width:100%;
   }
 
   .controls{
     gap:10px;
-  }
-
-  .controls button,
-  #volumeIcon{
-    width:52px;
-    height:52px;
   }
 
   #playPauseBtn{
@@ -513,4 +413,7 @@ input[type="range"]::-webkit-slider-runnable-track{
     align-items:stretch;
   }
 
+  .volume-container{
+    width:100%;
+  }
 }
