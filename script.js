@@ -3,7 +3,7 @@ const tracks = {
     track10: 'https://github.com/danieeel-2676/2676/blob/main/preview/10.wav',
     track12: 'https://github.com/danieeel-2676/2676/blob/main/preview/12.wav',
 };
-
+ 
 const backgrounds = {
     track3: 'mesh-blue-purple',
     track10: 'mesh-green-aqua',
