@@ -211,3 +211,15 @@ updateVolumeIcon(audio.volume);
 
 // Inicia con la primera canción cargada pero sin autoplay
 loadTrack(currentTrackIndex, false);
+
+const body = document.body;
+
+window.addEventListener('scroll', () => {
+
+  if(window.scrollY > 30){
+    body.classList.add('scrolled');
+  }else{
+    body.classList.remove('scrolled');
+  }
+
+});
