@@ -212,14 +212,23 @@ updateVolumeIcon(audio.volume);
 // Inicia con la primera canción cargada pero sin autoplay
 loadTrack(currentTrackIndex, false);
 
+/* =========================
+   STICKY BLUR ON SCROLL
+========================= */
+
 const body = document.body;
 
 window.addEventListener('scroll', () => {
 
-  if(window.scrollY > 30){
+  if(window.scrollY > 40){
+
     body.classList.add('scrolled');
+
   }else{
+
     body.classList.remove('scrolled');
+
   }
 
+});
 });
