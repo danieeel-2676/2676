@@ -145,7 +145,7 @@ volumeControl.addEventListener('input', () => {
     updateVolumeIcon(volumeControl.value);
 });
 
-// Click en icono para mutear/desmutear
+// Click en icono para mutear/desmutear 
 volumeIcon.addEventListener('click', () => {
     if (audio.volume > 0) {
         audio.volume = 0;
