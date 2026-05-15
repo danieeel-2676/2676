@@ -1,7 +1,7 @@
 const tracks = {
-    track3: 'https://github.com/danieeel-2676/2676/blob/main/preview/3.wav',
-    track10: 'https://github.com/danieeel-2676/2676/blob/main/preview/10.wav',
-    track12: 'https://github.com/danieeel-2676/2676/blob/main/preview/12.wav',
+    track3: 'preview/3.wav',
+    track10: 'preview/10.wav',
+    track12: 'preview/12.wav',
 };
  
 const backgrounds = {
